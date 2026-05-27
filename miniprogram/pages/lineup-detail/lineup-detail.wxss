@@ -1,0 +1,142 @@
+.detail-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24rpx;
+  margin-top: 12rpx;
+}
+
+.detail-title {
+  font-size: 38rpx;
+  font-weight: 800;
+}
+
+.detail-meta {
+  margin-top: 10rpx;
+  color: #8792a1;
+  font-size: 24rpx;
+}
+
+.fav-btn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff4b48;
+  font-size: 52rpx;
+}
+
+.tactic-card {
+  margin-top: 26rpx;
+  padding: 16rpx;
+}
+
+.map-board {
+  position: relative;
+  height: 380rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1rpx, transparent 1rpx),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.08) 1rpx, transparent 1rpx),
+    linear-gradient(135deg, #3c4652, #111923 62%, #05090e);
+  background-size: 64rpx 64rpx, 64rpx 64rpx, 100% 100%;
+}
+
+.site-a {
+  position: absolute;
+  top: 70rpx;
+  left: 235rpx;
+  width: 96rpx;
+  height: 96rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 166, 111, 0.42);
+  color: #fff;
+  font-size: 42rpx;
+  font-weight: 800;
+}
+
+.route {
+  position: absolute;
+  left: 210rpx;
+  top: 205rpx;
+  width: 230rpx;
+  height: 120rpx;
+  border-top: 4rpx solid #35d0c8;
+  border-right: 4rpx solid #35d0c8;
+  border-radius: 0 90rpx 0 0;
+}
+
+.point {
+  position: absolute;
+  width: 26rpx;
+  height: 26rpx;
+  border-radius: 50%;
+  border: 4rpx solid #35d0c8;
+  background: #081018;
+}
+
+.start {
+  left: 198rpx;
+  top: 193rpx;
+}
+
+.target {
+  left: 420rpx;
+  top: 307rpx;
+  border-color: #ff4b48;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.step-card {
+  min-height: 92rpx;
+  padding: 18rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.step-index {
+  width: 46rpx;
+  height: 46rpx;
+  border-radius: 6rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #35d0c8;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.step-text {
+  flex: 1;
+  color: #dce3ea;
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+
+.ref-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12rpx;
+}
+
+.ref-card {
+  height: 128rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 14rpx;
+  color: #dce3ea;
+  background: linear-gradient(135deg, #4a5664, #121b25);
+  font-size: 24rpx;
+}

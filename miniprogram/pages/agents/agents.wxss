@@ -1,0 +1,59 @@
+.role-tabs {
+  width: 100%;
+  white-space: nowrap;
+  margin-top: 24rpx;
+}
+
+.role-tabs .tag {
+  margin-right: 14rpx;
+}
+
+.agent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+  margin-top: 28rpx;
+}
+
+.agent-row {
+  min-height: 132rpx;
+  padding: 18rpx;
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+}
+
+.agent-avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid rgba(255, 75, 72, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #a35437, #1b2531);
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: 800;
+}
+
+.agent-info {
+  flex: 1;
+}
+
+.agent-name {
+  color: #f4f7fb;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.agent-meta {
+  margin-top: 10rpx;
+  color: #8792a1;
+  font-size: 24rpx;
+}
+
+.agent-arrow {
+  color: #8792a1;
+  font-size: 46rpx;
+}

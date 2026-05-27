@@ -1,0 +1,33 @@
+<view class="page-shell profile-page">
+  <view class="page-title">我的</view>
+
+  <view class="profile-card card">
+    <view class="avatar">瓦</view>
+    <view class="profile-info">
+      <view class="profile-name">战术收藏夹</view>
+      <view class="profile-meta">玩家自制点位工具</view>
+    </view>
+  </view>
+
+  <view class="stats card">
+    <view class="stat-item">
+      <view class="stat-num">18</view>
+      <view class="stat-label">收藏</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-num">7</view>
+      <view class="stat-label">最近浏览</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-num">32</view>
+      <view class="stat-label">更新</view>
+    </view>
+  </view>
+
+  <view class="menu card">
+    <view class="menu-row" bindtap="onFavoritesTap">我的收藏 <text>›</text></view>
+    <view class="menu-row" bindtap="onHistoryTap">最近浏览 <text>›</text></view>
+    <view class="menu-row" bindtap="onFeedbackTap">反馈点位 <text>›</text></view>
+    <view class="menu-row">版本说明 <text>›</text></view>
+  </view>
+</view>

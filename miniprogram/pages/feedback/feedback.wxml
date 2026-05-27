@@ -1,0 +1,9 @@
+<view class="page-shell">
+  <view class="page-title">反馈点位</view>
+  <view class="feedback-card card">
+    <view class="feedback-label">反馈类型</view>
+    <view class="feedback-field">点位错误 / 图片不清楚 / 希望新增</view>
+    <view class="feedback-label">问题描述</view>
+    <view class="feedback-textarea">后面会接入表单输入和云数据库。</view>
+  </view>
+</view>

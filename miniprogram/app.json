@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/maps/maps",
+    "pages/agents/agents",
+    "pages/lineups/lineups",
+    "pages/lineup-detail/lineup-detail",
+    "pages/profile/profile",
+    "pages/favorites/favorites",
+    "pages/history/history",
+    "pages/feedback/feedback"
+  ],
+  "window": {
+    "backgroundColor": "#081018",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#081018",
+    "navigationBarTitleText": "瓦点通",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#7A8493",
+    "selectedColor": "#FF4B48",
+    "backgroundColor": "#0B131C",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/maps/maps",
+        "text": "地图",
+        "iconPath": "images/icons/business.png",
+        "selectedIconPath": "images/icons/business-active.png"
+      },
+      {
+        "pagePath": "pages/agents/agents",
+        "text": "角色",
+        "iconPath": "images/icons/goods.png",
+        "selectedIconPath": "images/icons/goods-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/icons/usercenter.png",
+        "selectedIconPath": "images/icons/usercenter-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

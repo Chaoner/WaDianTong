@@ -1,0 +1,33 @@
+<view class="page-shell">
+  <view class="page-title">角色</view>
+  <view class="search-box">搜索角色</view>
+
+  <scroll-view class="role-tabs" scroll-x>
+    <view
+      class="tag {{selectedRole === item ? 'tag-active' : ''}}"
+      wx:for="{{roles}}"
+      wx:key="*this"
+      data-role="{{item}}"
+      bindtap="onRoleTap"
+    >
+      {{item}}
+    </view>
+  </scroll-view>
+
+  <view class="agent-list">
+    <view
+      class="agent-row card"
+      wx:for="{{visibleAgents}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onAgentTap"
+    >
+      <view class="agent-avatar">{{item.initial}}</view>
+      <view class="agent-info">
+        <view class="agent-name">{{item.name}}</view>
+        <view class="agent-meta">{{item.role}} · {{item.count}} 个点位</view>
+      </view>
+      <view class="agent-arrow">›</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+.feedback-card {
+  padding: 24rpx;
+}
+
+.feedback-label {
+  margin-top: 8rpx;
+  color: #f4f7fb;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.feedback-field,
+.feedback-textarea {
+  margin: 16rpx 0 26rpx;
+  border-radius: 8rpx;
+  padding: 22rpx;
+  color: #8792a1;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 26rpx;
+}
+
+.feedback-textarea {
+  min-height: 180rpx;
+}

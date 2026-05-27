@@ -1,0 +1,21 @@
+<view class="page-shell">
+  <view class="page-title">地图</view>
+  <view class="search-box">搜索地图</view>
+
+  <view class="map-list">
+    <view
+      class="map-row card"
+      wx:for="{{maps}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onMapTap"
+    >
+      <view class="map-cover">{{index + 1}}</view>
+      <view class="map-info">
+        <view class="map-name">{{item.name}}</view>
+        <view class="map-meta">{{item.meta}}</view>
+      </view>
+      <view class="map-status">{{item.status}}</view>
+    </view>
+  </view>
+</view>

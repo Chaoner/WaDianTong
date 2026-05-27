@@ -1,0 +1,54 @@
+<view class="page-shell home-page">
+  <view class="page-title">瓦点通</view>
+
+  <view class="search-box" bindtap="onSearchTap">搜索地图 / 角色 / 点位</view>
+
+  <view class="quick-grid">
+    <view
+      class="quick-item"
+      wx:for="{{quickTags}}"
+      wx:key="*this"
+      data-tag="{{item}}"
+      bindtap="onQuickTagTap"
+    >
+      <view class="quick-mark"></view>
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <view class="section-head">
+    <view class="section-title">热门地图</view>
+    <view class="section-more">全部</view>
+  </view>
+  <view class="map-grid">
+    <view
+      class="map-card card"
+      wx:for="{{maps}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onMapTap"
+    >
+      <view class="map-thumb">{{index + 1}}</view>
+      <view class="map-name">{{item.name}}</view>
+      <view class="map-meta">{{item.meta}}</view>
+    </view>
+  </view>
+
+  <view class="section-head">
+    <view class="section-title">热门角色</view>
+    <view class="section-more">全部</view>
+  </view>
+  <view class="agent-grid">
+    <view
+      class="agent-card card"
+      wx:for="{{agents}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onAgentTap"
+    >
+      <view class="agent-avatar">{{item.initial}}</view>
+      <view class="agent-name">{{item.name}}</view>
+      <view class="agent-role">{{item.role}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+<view class="page-shell">
+  <view class="detail-head">
+    <view>
+      <view class="detail-title">A点进攻封烟</view>
+      <view class="detail-meta">源工重镇 · 炼狱 · 进攻方</view>
+    </view>
+    <view class="fav-btn">☆</view>
+  </view>
+
+  <view class="tactic-card card">
+    <view class="map-board">
+      <view class="site-a">A</view>
+      <view class="route"></view>
+      <view class="point start"></view>
+      <view class="point target"></view>
+    </view>
+  </view>
+
+  <view class="section-head">
+    <view class="section-title">操作步骤</view>
+  </view>
+  <view class="steps">
+    <view class="step-card card" wx:for="{{steps}}" wx:key="*this">
+      <view class="step-index">{{index + 1}}</view>
+      <view class="step-text">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="section-head">
+    <view class="section-title">参考图</view>
+  </view>
+  <view class="ref-grid">
+    <view class="ref-card card">站位图</view>
+    <view class="ref-card card">瞄准点</view>
+    <view class="ref-card card">效果图</view>
+  </view>
+</view>

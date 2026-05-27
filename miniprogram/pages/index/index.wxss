@@ -1,0 +1,92 @@
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16rpx;
+  margin-top: 28rpx;
+}
+
+.quick-item {
+  height: 116rpx;
+  border-radius: 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  color: #f3f6f9;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.quick-mark {
+  width: 40rpx;
+  height: 40rpx;
+  border: 6rpx solid #ff4b48;
+  border-radius: 50%;
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14rpx;
+}
+
+.map-card {
+  min-height: 220rpx;
+  padding: 12rpx;
+}
+
+.map-thumb {
+  height: 120rpx;
+  border-radius: 6rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.88);
+  background: linear-gradient(135deg, #4a5664, #151d28 62%, #ff4b48);
+  font-size: 44rpx;
+  font-weight: 800;
+}
+
+.map-name,
+.agent-name {
+  margin-top: 14rpx;
+  color: #f4f7fb;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+
+.map-meta,
+.agent-role {
+  margin-top: 6rpx;
+  color: #8894a3;
+  font-size: 22rpx;
+}
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12rpx;
+}
+
+.agent-card {
+  min-height: 164rpx;
+  padding: 12rpx 10rpx;
+  text-align: center;
+}
+
+.agent-avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border: 2rpx solid rgba(255, 75, 72, 0.72);
+  border-radius: 8rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, #a35437, #1b2531);
+  font-size: 30rpx;
+  font-weight: 800;
+}
