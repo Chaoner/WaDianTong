@@ -1,21 +1,38 @@
 <view class="page-shell">
   <view class="page-title">地图</view>
-  <view class="search-box">搜索地图</view>
+  <view class="search-box">
+    <input
+      class="search-input"
+      value="{{searchKeyword}}"
+      placeholder="搜索地图"
+      placeholder-style="color:#7f8a99;"
+      confirm-type="search"
+      bindinput="onSearchInput"
+      bindconfirm="onSearchConfirm"
+    />
+  </view>
 
-  <view class="map-list">
+  <view class="map-list" wx:if="{{maps.length}}">
     <view
-      class="map-row card"
+      class="map-row card pressable-card"
       wx:for="{{maps}}"
       wx:key="id"
       data-id="{{item.id}}"
+      hover-class="media-card-pressed"
+      hover-start-time="0"
+      hover-stay-time="90"
       bindtap="onMapTap"
     >
-      <view class="map-cover">{{index + 1}}</view>
+      <image class="map-cover" src="{{item.image}}" mode="aspectFill"></image>
       <view class="map-info">
         <view class="map-name">{{item.name}}</view>
         <view class="map-meta">{{item.meta}}</view>
       </view>
-      <view class="map-status">{{item.status}}</view>
+      <view class="map-mode {{item.modeId === 'competitive' ? 'map-mode-competitive' : 'map-mode-normal'}}">{{item.mode}}</view>
     </view>
+  </view>
+
+  <view class="empty-card card" wx:else>
+    没有找到相关地图
   </view>
 </view>

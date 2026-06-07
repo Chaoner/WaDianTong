@@ -1,0 +1,110 @@
+<view class="agent-detail-root" wx:if="{{agent}}">
+  <image class="agent-bg-portrait" src="{{agent.portrait}}" mode="aspectFit"></image>
+
+  <view class="page-shell agent-detail-page">
+    <view class="page-title">角色详情</view>
+
+    <view class="agent-hero card">
+      <image class="agent-hero-portrait" src="{{agent.portrait}}" mode="aspectFit"></image>
+      <view class="agent-hero-info">
+        <view class="agent-name">{{agent.name}}</view>
+        <view class="agent-role">{{agent.roleName}}</view>
+        <view class="agent-desc">{{agent.description}}</view>
+      </view>
+    </view>
+
+    <view class="section-title skill-title">技能描述</view>
+    <scroll-view class="ability-scroll" scroll-x>
+      <view class="ability-track">
+        <block wx:for="{{abilities}}" wx:key="id">
+          <view
+            class="ability-button {{currentAbilityId === item.id ? 'ability-active' : ''}}"
+            data-id="{{item.id}}"
+            bindtap="onAbilityTap"
+          >
+            <image class="ability-icon" src="{{item.icon}}" mode="aspectFit"></image>
+          </view>
+          <view wx:if="{{currentAbilityId === item.id}}" class="ability-desc card">
+            <view class="ability-name">{{currentAbility.name}}</view>
+            <view class="ability-text">{{currentAbility.description}}</view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+
+    <view class="section-title map-title">选择地图</view>
+    <scroll-view class="map-scroll" scroll-x>
+      <view class="map-track">
+        <view
+          class="map-option {{currentMapId === item.id ? 'map-option-active' : ''}}"
+          wx:for="{{maps}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="onMapTap"
+        >
+          <image class="map-image" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="map-name">{{item.name}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="section-note">地图会影响下方点位类型和点位列表</view>
+
+    <view class="side-filter card">
+      <view
+        class="side-option {{currentSide === item.id ? 'side-option-active' : ''}} {{item.id === 'defense' ? 'side-option-defense' : ''}} {{item.id === 'attack' ? 'side-option-attack' : ''}}"
+        wx:for="{{sideOptions}}"
+        wx:key="id"
+        data-side="{{item.id}}"
+        bindtap="onSideTap"
+      >
+        {{item.name}}
+      </view>
+    </view>
+
+    <view class="section-title filter-title">点位筛选</view>
+    <view class="filter-row">
+      <picker mode="selector" range="{{categories}}" range-key="name" value="{{categoryIndex}}" bindchange="onCategoryChange">
+        <view class="category-select card">
+          <text>{{currentCategoryName}}</text>
+          <text class="select-arrow">∨</text>
+        </view>
+      </picker>
+      <view class="apply-button" bindtap="onApplyTap">申请点位</view>
+    </view>
+
+    <view class="section-title lineup-title">点位列表</view>
+    <view class="lineup-list" wx:if="{{lineups.length}}">
+      <view
+        class="lineup-card card pressable-card"
+        wx:for="{{lineups}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        hover-class="media-card-pressed"
+        hover-start-time="0"
+        hover-stay-time="90"
+        bindtap="onLineupTap"
+      >
+        <view class="lineup-rating">
+          <view class="rating-stars">
+            <view class="rating-star" wx:for="{{item.ratingStars}}" wx:key="index">
+              <text class="rating-star-base">★</text>
+              <text class="rating-star-fill" style="width: {{item.fill}}%;">★</text>
+            </view>
+          </view>
+          <text class="rating-score">{{item.ratingText}}</text>
+        </view>
+        <image class="lineup-cover" src="{{item.cover}}" mode="aspectFill"></image>
+        <view class="lineup-info">
+          <view class="lineup-name">{{item.title}}</view>
+          <view class="lineup-meta">{{item.mapName}} · {{item.categoryName}}</view>
+          <view class="lineup-rating-count">{{item.ratingCount}} 人评分</view>
+        </view>
+        <view class="lineup-state">{{item.difficulty}}</view>
+      </view>
+    </view>
+
+    <view class="empty-card card" wx:else>
+      当前筛选下暂无点位
+    </view>
+  </view>
+</view>

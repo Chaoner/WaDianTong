@@ -1,0 +1,63 @@
+<view class="page-shell search-page">
+  <view class="page-title">搜索结果</view>
+
+  <view class="search-box">
+    <input
+      class="search-input"
+      value="{{keyword}}"
+      placeholder="搜索地图 / 角色 / 点位"
+      placeholder-style="color:#7f8a99;"
+      confirm-type="search"
+      bindinput="onSearchInput"
+      bindconfirm="onSearchConfirm"
+    />
+  </view>
+
+  <view class="search-summary" wx:if="{{keyword}}">共找到 {{results.total}} 个结果</view>
+
+  <view wx:if="{{results.maps.length}}">
+    <view class="section-title result-title">地图</view>
+    <view class="result-list">
+      <view class="result-row card" wx:for="{{results.maps}}" wx:key="id" data-id="{{item.id}}" bindtap="onMapTap">
+        <image class="result-thumb" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="result-info">
+          <view class="result-name">{{item.name}}</view>
+          <view class="result-meta">{{item.meta}}</view>
+        </view>
+        <view class="result-type">{{item.mode}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{results.agents.length}}">
+    <view class="section-title result-title">角色</view>
+    <view class="result-list">
+      <view class="result-row card" wx:for="{{results.agents}}" wx:key="id" data-id="{{item.id}}" bindtap="onAgentTap">
+        <image class="result-avatar" src="{{item.avatar}}" mode="aspectFit"></image>
+        <view class="result-info">
+          <view class="result-name">{{item.name}}</view>
+          <view class="result-meta">{{item.roleName}} · {{item.count}} 个点位</view>
+        </view>
+        <view class="result-type">角色</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{results.lineups.length}}">
+    <view class="section-title result-title">点位</view>
+    <view class="result-list">
+      <view class="result-row card" wx:for="{{results.lineups}}" wx:key="id" data-id="{{item.id}}" bindtap="onLineupTap">
+        <image class="result-thumb" src="{{item.cover}}" mode="aspectFill"></image>
+        <view class="result-info">
+          <view class="result-name">{{item.title}}</view>
+          <view class="result-meta">{{item.mapName}} · {{item.agentName}} · {{item.categoryName}}</view>
+        </view>
+        <view class="result-type">{{item.sideName}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-card card" wx:if="{{keyword && !results.total}}">
+    没有找到相关内容
+  </view>
+</view>

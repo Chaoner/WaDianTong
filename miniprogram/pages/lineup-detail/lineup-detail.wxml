@@ -1,37 +1,111 @@
-<view class="page-shell">
-  <view class="detail-head">
-    <view>
-      <view class="detail-title">A点进攻封烟</view>
-      <view class="detail-meta">源工重镇 · 炼狱 · 进攻方</view>
+<view class="page-shell lineup-detail-page" wx:if="{{lineup}}">
+  <view class="page-title">点位详情</view>
+
+  <view class="detail-card card">
+    <view class="detail-title">{{lineup.title}}</view>
+    <view class="detail-tags">
+      <view class="detail-tag tag-agent">{{lineup.agentName}}</view>
+      <view class="detail-tag tag-map">{{lineup.mapName}}</view>
+      <view class="detail-tag tag-category">{{lineup.categoryName}}</view>
+      <view class="detail-tag tag-side">{{lineup.sideName}}</view>
     </view>
-    <view class="fav-btn">☆</view>
+    <view class="detail-rating">
+      <view class="detail-rating-main">
+        <view class="rating-stars">
+          <view class="rating-star" wx:for="{{lineup.ratingStars}}" wx:key="index">
+            <text class="rating-star-base">★</text>
+            <text class="rating-star-fill" style="width: {{item.fill}}%;">★</text>
+          </view>
+        </view>
+        <text class="detail-rating-score">{{lineup.ratingText}}</text>
+        <text class="detail-rating-count">{{lineup.ratingCount}} 人评分</text>
+      </view>
+      <view class="rate-action">
+        <text class="rate-label">我要打分</text>
+        <view class="rate-stars">
+          <text
+            class="rate-star {{userRating >= item ? 'rate-star-active' : ''}}"
+            wx:for="{{rateChoices}}"
+            wx:key="*this"
+            data-rating="{{item}}"
+            bindtap="onRateTap"
+          >
+            ★
+          </text>
+        </view>
+      </view>
+    </view>
+    <view class="detail-desc">{{lineup.summary}}</view>
   </view>
 
-  <view class="tactic-card card">
-    <view class="map-board">
-      <view class="site-a">A</view>
-      <view class="route"></view>
-      <view class="point start"></view>
-      <view class="point target"></view>
-    </view>
+  <view class="section-title section-gap">站点位置</view>
+  <view class="stand-card card">
+    <swiper class="stand-swiper" current="{{standIndex}}" bindchange="onStandChange">
+      <swiper-item wx:for="{{lineup.media.stand}}" wx:key="title">
+        <image
+          class="stand-image"
+          src="{{item.src}}"
+          mode="aspectFill"
+          data-src="{{item.src}}"
+          bindtap="onPreviewStandImage"
+        ></image>
+        <view class="placeholder-word">POSITION</view>
+        <view class="stand-label">{{item.title}}</view>
+      </swiper-item>
+    </swiper>
+    <view class="multi-badge">可多图滑动</view>
+    <view class="stand-count">站点图 {{standIndex + 1}} / {{lineup.media.stand.length}}</view>
   </view>
+  <view class="media-note">{{standDescription}}</view>
 
-  <view class="section-head">
-    <view class="section-title">操作步骤</view>
-  </view>
-  <view class="steps">
-    <view class="step-card card" wx:for="{{steps}}" wx:key="*this">
-      <view class="step-index">{{index + 1}}</view>
-      <view class="step-text">{{item}}</view>
+  <view class="section-title section-gap">瞄点位置</view>
+  <scroll-view class="aim-scroll" scroll-x>
+    <view class="aim-track">
+      <view class="aim-card card" wx:for="{{lineup.media.aim}}" wx:key="title">
+        <image
+          class="aim-image"
+          src="{{item.src}}"
+          mode="aspectFill"
+          data-src="{{item.src}}"
+          bindtap="onPreviewAimImage"
+        ></image>
+        <view class="placeholder-word aim-word">AIM</view>
+        <view class="aim-title">{{item.title}}</view>
+      </view>
     </view>
-  </view>
+  </scroll-view>
+  <view class="media-note">瞄点位置可能有多张图：第一张给主瞄点，第二张给备用瞄点或细节校准。</view>
 
-  <view class="section-head">
-    <view class="section-title">参考图</view>
-  </view>
-  <view class="ref-grid">
-    <view class="ref-card card">站位图</view>
-    <view class="ref-card card">瞄准点</view>
-    <view class="ref-card card">效果图</view>
+  <view class="section-title section-gap">点位效果</view>
+  <view class="effect-card card">
+    <video
+      wx:if="{{effectMedia.type === 'video' && effectVideoSrc}}"
+      id="effectVideo"
+      class="effect-video"
+      src="{{effectVideoSrc}}"
+      poster="{{effectPoster}}"
+      controls
+      show-fullscreen-btn
+      object-fit="cover"
+      bindtap="onEffectVideoTap"
+    ></video>
+    <image
+      wx:elif="{{effectMedia.type === 'video'}}"
+      class="effect-image"
+      src="{{effectPoster}}"
+      mode="aspectFill"
+      bindtap="onEffectVideoTap"
+    ></image>
+    <image
+      wx:else
+      class="effect-image"
+      src="{{effectMedia.src}}"
+      mode="aspectFill"
+      bindtap="onPreviewEffectImage"
+    ></image>
+    <view class="placeholder-word effect-word">EFFECT</view>
+    <view class="effect-type">{{effectMedia.type === 'video' ? '视频' : '图片'}}</view>
+    <view class="play-button" wx:if="{{effectMedia.type === 'video'}}">▶</view>
+    <view class="effect-title">{{effectMedia.title}} · {{effectMedia.description}}</view>
   </view>
 </view>

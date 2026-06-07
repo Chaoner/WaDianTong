@@ -74,7 +74,72 @@
   "compileType": "miniprogram",
   "srcMiniprogramRoot": "miniprogram/",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "miniprogram/pages/example"
+      },
+      {
+        "type": "folder",
+        "value": "miniprogram/components/cloudTipModal"
+      },
+      {
+        "type": "folder",
+        "value": "miniprogram/images/icons"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/ai_example1.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/ai_example2.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/avatar.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/cloud_dev.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/create_cbr.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/create_cbrf.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/create_env.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/database.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/database_add.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/default-goods-image.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/env-select.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/function_deploy.png"
+      },
+      {
+        "type": "file",
+        "value": "miniprogram/images/scf-enter.png"
+      }
+    ],
     "include": []
   },
   "editorSetting": {

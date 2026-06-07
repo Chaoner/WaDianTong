@@ -93,6 +93,17 @@ button::after {
   box-shadow: 0 18rpx 44rpx rgba(0, 0, 0, 0.2);
 }
 
+.pressable-card {
+  transform-origin: center;
+  transition: opacity 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+}
+
+.media-card-pressed {
+  opacity: 0.86;
+  transform: scale(0.97);
+  box-shadow: 0 10rpx 24rpx rgba(0, 0, 0, 0.28);
+}
+
 .tag {
   min-width: 88rpx;
   height: 52rpx;

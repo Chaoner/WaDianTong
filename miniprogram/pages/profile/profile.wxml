@@ -1,33 +1,56 @@
 <view class="page-shell profile-page">
   <view class="page-title">我的</view>
 
-  <view class="profile-card card">
+  <view class="profile-card card" bindtap="onProfileTap">
     <view class="avatar">瓦</view>
-    <view class="profile-info">
-      <view class="profile-name">战术收藏夹</view>
-      <view class="profile-meta">玩家自制点位工具</view>
+    <view class="profile-main">
+      <view class="profile-name">{{user.name}}</view>
+      <view class="profile-desc">{{user.desc}}</view>
+    </view>
+    <view class="profile-arrow">›</view>
+  </view>
+
+  <view class="stat-grid">
+    <view class="stat-card card" wx:for="{{stats}}" wx:key="id">
+      <view class="stat-num">{{item.num}}</view>
+      <view class="stat-label">{{item.label}}</view>
     </view>
   </view>
 
-  <view class="stats card">
-    <view class="stat-item">
-      <view class="stat-num">18</view>
-      <view class="stat-label">收藏</view>
+  <view class="add-lineup-button" bindtap="onAddLineupTap">
+    <view class="add-icon">+</view>
+    <view class="add-copy">
+      <view class="add-title">添加点位</view>
+      <view class="add-desc">上传站点、瞄点、效果图/视频，审核通过后进入点位库</view>
     </view>
-    <view class="stat-item">
-      <view class="stat-num">7</view>
-      <view class="stat-label">最近浏览</view>
-    </view>
-    <view class="stat-item">
-      <view class="stat-num">32</view>
-      <view class="stat-label">更新</view>
+    <view class="add-arrow">›</view>
+  </view>
+
+  <view class="section-title menu-title">常用入口</view>
+  <view class="menu-list">
+    <view
+      class="menu-row card"
+      wx:for="{{menus}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onMenuTap"
+    >
+      <view class="menu-copy">
+        <view class="menu-name">{{item.title}}</view>
+        <view class="menu-desc">{{item.desc}}</view>
+      </view>
+      <view class="menu-count">{{item.count}}</view>
+      <view class="menu-arrow">›</view>
     </view>
   </view>
 
-  <view class="menu card">
-    <view class="menu-row" bindtap="onFavoritesTap">我的收藏 <text>›</text></view>
-    <view class="menu-row" bindtap="onHistoryTap">最近浏览 <text>›</text></view>
-    <view class="menu-row" bindtap="onFeedbackTap">反馈点位 <text>›</text></view>
-    <view class="menu-row">版本说明 <text>›</text></view>
+  <view class="section-title recent-title">最近浏览</view>
+  <view class="recent-card card" bindtap="onRecentTap">
+    <view class="recent-thumb"></view>
+    <view class="recent-info">
+      <view class="recent-name">{{recentLineup.title}}</view>
+      <view class="recent-meta">{{recentLineup.meta}}</view>
+    </view>
+    <view class="recent-rating">{{recentLineup.rating}}</view>
   </view>
 </view>

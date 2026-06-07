@@ -1,54 +1,87 @@
 <view class="page-shell home-page">
   <view class="page-title">瓦点通</view>
 
-  <view class="search-box" bindtap="onSearchTap">搜索地图 / 角色 / 点位</view>
-
-  <view class="quick-grid">
-    <view
-      class="quick-item"
-      wx:for="{{quickTags}}"
-      wx:key="*this"
-      data-tag="{{item}}"
-      bindtap="onQuickTagTap"
-    >
-      <view class="quick-mark"></view>
-      <text>{{item}}</text>
-    </view>
+  <view class="search-box">
+    <input
+      class="search-input"
+      value="{{searchKeyword}}"
+      placeholder="搜索地图 / 角色 / 点位"
+      placeholder-style="color:#7f8a99;"
+      confirm-type="search"
+      bindinput="onSearchInput"
+      bindconfirm="onSearchConfirm"
+    />
   </view>
 
   <view class="section-head">
     <view class="section-title">热门地图</view>
-    <view class="section-more">全部</view>
+    <view class="section-more" bindtap="onAllMapsTap">全部</view>
   </view>
   <view class="map-grid">
     <view
-      class="map-card card"
+      class="map-card card pressable-card"
       wx:for="{{maps}}"
       wx:key="id"
       data-id="{{item.id}}"
+      hover-class="media-card-pressed"
+      hover-start-time="0"
+      hover-stay-time="90"
       bindtap="onMapTap"
     >
-      <view class="map-thumb">{{index + 1}}</view>
+      <image class="map-thumb" src="{{item.image}}" mode="aspectFill"></image>
       <view class="map-name">{{item.name}}</view>
-      <view class="map-meta">{{item.meta}}</view>
+      <view class="map-meta">{{item.sites}}</view>
     </view>
   </view>
 
   <view class="section-head">
     <view class="section-title">热门角色</view>
-    <view class="section-more">全部</view>
+    <view class="section-more" bindtap="onAllAgentsTap">全部</view>
   </view>
   <view class="agent-grid">
     <view
-      class="agent-card card"
+      class="agent-card card pressable-card"
       wx:for="{{agents}}"
       wx:key="id"
       data-id="{{item.id}}"
+      hover-class="media-card-pressed"
+      hover-start-time="0"
+      hover-stay-time="90"
       bindtap="onAgentTap"
     >
-      <view class="agent-avatar">{{item.initial}}</view>
+      <image class="agent-avatar" src="{{item.avatar}}" mode="aspectFit"></image>
       <view class="agent-name">{{item.name}}</view>
-      <view class="agent-role">{{item.role}}</view>
+      <view class="agent-role">{{item.roleName}}</view>
     </view>
   </view>
+
+  <view class="section-head official-head">
+    <view class="section-title">官方活动</view>
+    <view class="section-more">官网</view>
+  </view>
+  <swiper
+    class="official-swiper"
+    autoplay
+    circular
+    interval="4200"
+    duration="450"
+    indicator-dots
+    indicator-color="rgba(255,255,255,0.28)"
+    indicator-active-color="#ff4655"
+  >
+    <swiper-item wx:for="{{officialBanners}}" wx:key="id">
+      <view
+        class="official-banner {{item.theme}}"
+        data-id="{{item.id}}"
+        bindtap="onOfficialBannerTap"
+      >
+        <view class="banner-copy">
+          <view class="banner-tag">{{item.tag}}</view>
+          <view class="banner-title">{{item.title}}</view>
+          <view class="banner-desc">{{item.desc}}</view>
+        </view>
+        <view class="banner-action">前往官网</view>
+      </view>
+    </swiper-item>
+  </swiper>
 </view>

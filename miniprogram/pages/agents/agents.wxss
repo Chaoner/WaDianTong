@@ -1,59 +1,174 @@
 .role-tabs {
   width: 100%;
-  white-space: nowrap;
   margin-top: 24rpx;
+  display: flex;
+  align-items: stretch;
+  gap: 12rpx;
+  overflow: hidden;
 }
 
-.role-tabs .tag {
-  margin-right: 14rpx;
+.role-option {
+  width: calc(20vw - 59.2rpx);
+  min-width: calc(20vw - 59.2rpx);
+  height: calc(20vw - 59.2rpx);
+  display: flex;
+  align-items: stretch;
+  flex: 0 0 auto;
+  overflow: hidden;
+  transition: width 220ms ease;
+}
+
+.role-option-active {
+  width: calc(20vw + 132.8rpx);
+}
+
+.search-input {
+  flex: 1;
+  height: 100%;
+  color: #eef3f8;
+  font-size: 26rpx;
+}
+
+.role-chip {
+  width: calc(20vw - 59.2rpx);
+  min-width: calc(20vw - 59.2rpx);
+  height: calc(20vw - 59.2rpx);
+  flex: 0 0 auto;
+  padding: 0;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dce3ea;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.role-chip-active {
+  color: #fff;
+  background: #df4040;
+}
+
+.role-name-panel {
+  width: 0;
+  height: 100%;
+  margin-left: 0;
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  overflow: hidden;
+  opacity: 0;
+  color: #f4f7fb;
+  background: rgba(78, 88, 99, 0.86);
+  transition: width 220ms ease, margin-left 220ms ease, opacity 150ms ease;
+}
+
+.role-option-active .role-name-panel {
+  width: 180rpx;
+  margin-left: 12rpx;
+  opacity: 1;
+}
+
+.role-name-text {
+  min-width: 140rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 800;
+}
+
+.role-chip-icon-wrap {
+  width: 60%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.role-chip-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.role-all-icon {
+  width: 48%;
+  height: 48%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rpx;
+}
+
+.role-all-icon view {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rpx;
+  background: #fff;
 }
 
 .agent-list {
-  display: flex;
-  flex-direction: column;
-  gap: 18rpx;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16rpx;
   margin-top: 28rpx;
 }
 
 .agent-row {
-  min-height: 132rpx;
-  padding: 18rpx;
-  display: flex;
-  align-items: center;
-  gap: 18rpx;
+  position: relative;
+  height: 248rpx;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #2e3a48 0%, #8d2f2b 100%);
 }
 
 .agent-avatar {
-  width: 88rpx;
-  height: 88rpx;
-  border-radius: 8rpx;
-  border: 2rpx solid rgba(255, 75, 72, 0.72);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #a35437, #1b2531);
-  color: #fff;
-  font-size: 34rpx;
-  font-weight: 800;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: 0;
+  transform: translateY(-14rpx);
+  background: transparent;
+  display: block;
 }
 
 .agent-info {
-  flex: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 62rpx;
+  padding: 8rpx 6rpx 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(6, 11, 17, 0) 0%, rgba(6, 11, 17, 0.82) 34%, rgba(6, 11, 17, 0.96) 100%);
 }
 
 .agent-name {
   color: #f4f7fb;
-  font-size: 30rpx;
+  font-size: 28rpx;
   font-weight: 700;
 }
 
 .agent-meta {
-  margin-top: 10rpx;
-  color: #8792a1;
-  font-size: 24rpx;
+  margin-top: 4rpx;
+  color: #a9b4c2;
+  font-size: 20rpx;
 }
 
 .agent-arrow {
-  color: #8792a1;
-  font-size: 46rpx;
+  display: none;
+}
+
+.empty-card {
+  height: 150rpx;
+  margin-top: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8f9aaa;
+  background: rgba(78, 88, 99, 0.68);
+  font-size: 25rpx;
 }

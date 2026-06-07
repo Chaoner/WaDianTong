@@ -1,0 +1,66 @@
+<view class="page-shell lineup-add-page">
+  <view class="page-title">添加点位</view>
+  <view class="page-subtitle">提交后进入审核，管理员通过后展示给所有用户</view>
+
+  <view class="section-title first-section">基础信息</view>
+  <view class="basic-card card">
+    <view
+      class="field-block"
+      wx:for="{{fields}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onFieldTap"
+    >
+      <view class="field-label">{{item.label}}</view>
+      <view class="field-value">
+        <text>{{item.value}}</text>
+        <text class="field-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="side-row">
+      <view class="side-label">阵营</view>
+      <view
+        class="side-btn side-defense {{side === 'defense' ? 'side-active' : ''}}"
+        data-side="defense"
+        bindtap="onSideTap"
+      >
+        防守方
+      </view>
+      <view
+        class="side-btn side-attack {{side === 'attack' ? 'side-active' : ''}}"
+        data-side="attack"
+        bindtap="onSideTap"
+      >
+        进攻方
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title section-gap">点位描述</view>
+  <view class="desc-card card">
+    <view class="desc-placeholder">说明点位用途、适用场景、释放时机。</view>
+    <view class="desc-example">例如：回防A点时补出遮挡烟，切断后点视野。</view>
+  </view>
+
+  <view class="section-title section-gap">上传媒体</view>
+  <view class="media-list">
+    <view class="media-card card" wx:for="{{mediaItems}}" wx:key="id">
+      <view class="media-thumb">{{item.placeholder}}</view>
+      <view class="media-copy">
+        <view class="media-title">{{item.title}}</view>
+        <view class="media-desc">{{item.desc}}</view>
+      </view>
+      <view class="upload-btn" data-id="{{item.id}}" bindtap="onUploadTap">上传</view>
+    </view>
+  </view>
+
+  <view class="section-title section-gap">点位分类</view>
+  <view class="submit-row">
+    <view class="category-select card" bindtap="onCategoryTap">
+      <text>{{categoryName}}</text>
+      <text class="field-arrow">›</text>
+    </view>
+    <view class="submit-btn" bindtap="onSubmitTap">提交审核</view>
+  </view>
+</view>

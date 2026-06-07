@@ -3,9 +3,14 @@
     "pages/index/index",
     "pages/maps/maps",
     "pages/agents/agents",
-    "pages/lineups/lineups",
-    "pages/lineup-detail/lineup-detail",
     "pages/profile/profile",
+    "pages/profile-edit/profile-edit",
+    "pages/search/search",
+    "pages/map-detail/map-detail",
+    "pages/agent-detail/agent-detail",
+    "pages/lineup-detail/lineup-detail",
+    "pages/lineup-add/lineup-add",
+    "pages/official-web/official-web",
     "pages/favorites/favorites",
     "pages/history/history",
     "pages/feedback/feedback"
@@ -14,7 +19,7 @@
     "backgroundColor": "#081018",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#081018",
-    "navigationBarTitleText": "瓦点通",
+    "navigationBarTitleText": "\u74e6\u70b9\u901a",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -25,27 +30,27 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "images/icons/home.png",
-        "selectedIconPath": "images/icons/home-active.png"
+        "text": "\u9996\u9875",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home-active.png"
       },
       {
         "pagePath": "pages/maps/maps",
-        "text": "地图",
-        "iconPath": "images/icons/business.png",
-        "selectedIconPath": "images/icons/business-active.png"
+        "text": "\u5730\u56fe",
+        "iconPath": "images/tabbar/map.png",
+        "selectedIconPath": "images/tabbar/map-active.png"
       },
       {
         "pagePath": "pages/agents/agents",
-        "text": "角色",
-        "iconPath": "images/icons/goods.png",
-        "selectedIconPath": "images/icons/goods-active.png"
+        "text": "\u89d2\u8272",
+        "iconPath": "images/tabbar/agent.png",
+        "selectedIconPath": "images/tabbar/agent-active.png"
       },
       {
         "pagePath": "pages/profile/profile",
-        "text": "我的",
-        "iconPath": "images/icons/usercenter.png",
-        "selectedIconPath": "images/icons/usercenter-active.png"
+        "text": "\u6211\u7684",
+        "iconPath": "images/tabbar/profile.png",
+        "selectedIconPath": "images/tabbar/profile-active.png"
       }
     ]
   },

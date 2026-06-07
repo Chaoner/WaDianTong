@@ -1,41 +1,52 @@
+const { getAllData, searchAgents } = require("../../utils/data-query");
+const { agentDetailUrl } = require("../../utils/route");
+
 Page({
   data: {
-    roles: ["全部", "控场", "先锋", "决斗", "哨卫"],
-    selectedRole: "全部",
-    agents: [
-      { id: "brimstone", name: "炼狱", initial: "炼", role: "控场", count: 18 },
-      { id: "sova", name: "猎枭", initial: "猎", role: "先锋", count: 12 },
-      { id: "jett", name: "捷风", initial: "捷", role: "决斗", count: 9 },
-      { id: "killjoy", name: "奇乐", initial: "奇", role: "哨卫", count: 11 },
-      { id: "sage", name: "贤者", initial: "贤", role: "哨卫", count: 7 },
-      { id: "omen", name: "幽影", initial: "幽", role: "控场", count: 10 },
-    ],
+    roles: [],
+    selectedRoleId: "all",
+    searchKeyword: "",
     visibleAgents: [],
   },
 
   onLoad() {
-    this.refreshVisibleAgents("全部");
+    const { roles } = getAllData();
+
+    this.setData({ roles });
+    this.refreshAgents();
+  },
+
+  onSearchInput(e) {
+    this.setData({
+      searchKeyword: e.detail.value,
+    });
+
+    this.refreshAgents();
+  },
+
+  onSearchConfirm() {
+    this.refreshAgents();
   },
 
   onRoleTap(e) {
-    this.refreshVisibleAgents(e.currentTarget.dataset.role);
-  },
-
-  refreshVisibleAgents(role) {
-    const visibleAgents =
-      role === "全部"
-        ? this.data.agents
-        : this.data.agents.filter((agent) => agent.role === role);
+    const selectedRoleId = e.currentTarget.dataset.roleId;
 
     this.setData({
-      selectedRole: role,
-      visibleAgents,
+      selectedRoleId,
+    });
+
+    this.refreshAgents();
+  },
+
+  refreshAgents() {
+    this.setData({
+      visibleAgents: searchAgents(this.data.searchKeyword, this.data.selectedRoleId),
     });
   },
 
   onAgentTap(e) {
     wx.navigateTo({
-      url: `/pages/lineups/lineups?agent=${e.currentTarget.dataset.id}`,
+      url: agentDetailUrl(e.currentTarget.dataset.id),
     });
   },
 });

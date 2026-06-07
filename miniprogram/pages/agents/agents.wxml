@@ -1,33 +1,66 @@
 <view class="page-shell">
   <view class="page-title">角色</view>
-  <view class="search-box">搜索角色</view>
+  <view class="search-box">
+    <input
+      class="search-input"
+      value="{{searchKeyword}}"
+      placeholder="搜索角色"
+      placeholder-style="color:#7f8a99;"
+      confirm-type="search"
+      bindinput="onSearchInput"
+      bindconfirm="onSearchConfirm"
+    />
+  </view>
 
-  <scroll-view class="role-tabs" scroll-x>
+  <view class="role-tabs">
     <view
-      class="tag {{selectedRole === item ? 'tag-active' : ''}}"
+      id="role-option-{{item.id}}"
+      class="role-option {{selectedRoleId === item.id ? 'role-option-active' : ''}}"
       wx:for="{{roles}}"
-      wx:key="*this"
-      data-role="{{item}}"
-      bindtap="onRoleTap"
+      wx:key="id"
     >
-      {{item}}
+      <view
+        class="role-chip {{selectedRoleId === item.id ? 'role-chip-active' : ''}}"
+        data-role-id="{{item.id}}"
+        bindtap="onRoleTap"
+      >
+        <view wx:if="{{item.icon}}" class="role-chip-icon-wrap">
+          <image class="role-chip-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        </view>
+        <view wx:else class="role-all-icon">
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+        </view>
+      </view>
+      <view class="role-name-panel">
+        <text class="role-name-text">{{item.name}}</text>
+      </view>
     </view>
-  </scroll-view>
+  </view>
 
-  <view class="agent-list">
+  <view class="agent-list" wx:if="{{visibleAgents.length}}">
     <view
-      class="agent-row card"
+      class="agent-row card pressable-card"
       wx:for="{{visibleAgents}}"
       wx:key="id"
       data-id="{{item.id}}"
+      hover-class="media-card-pressed"
+      hover-start-time="0"
+      hover-stay-time="90"
       bindtap="onAgentTap"
     >
-      <view class="agent-avatar">{{item.initial}}</view>
+      <image class="agent-avatar" src="{{item.avatar}}" mode="aspectFit"></image>
       <view class="agent-info">
         <view class="agent-name">{{item.name}}</view>
-        <view class="agent-meta">{{item.role}} · {{item.count}} 个点位</view>
+        <view class="agent-meta">{{item.roleName}} · {{item.count}} 个点位</view>
       </view>
       <view class="agent-arrow">›</view>
     </view>
+  </view>
+
+  <view class="empty-card card" wx:else>
+    没有找到相关角色
   </view>
 </view>

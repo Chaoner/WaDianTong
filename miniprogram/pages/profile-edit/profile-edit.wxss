@@ -1,0 +1,176 @@
+.profile-edit-page {
+  padding-bottom: 72rpx;
+}
+
+.page-subtitle {
+  margin-top: -10rpx;
+  color: #aab5c3;
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+
+.first-section {
+  margin-top: 34rpx;
+}
+
+.section-gap {
+  margin-top: 52rpx;
+}
+
+.avatar-card {
+  position: relative;
+  height: 348rpx;
+  margin-top: 22rpx;
+  padding-top: 36rpx;
+  background: rgba(78, 88, 99, 0.76);
+}
+
+.avatar-preview {
+  width: 196rpx;
+  height: 196rpx;
+  margin: 0 auto;
+  border-radius: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #ff4655;
+  font-size: 72rpx;
+  font-weight: 900;
+}
+
+.avatar-actions {
+  position: absolute;
+  left: 62rpx;
+  right: 62rpx;
+  bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar-action {
+  width: 236rpx;
+  height: 58rpx;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.avatar-action-primary {
+  border: 1rpx solid #ff4655;
+  color: #ff747b;
+  background: rgba(255, 70, 85, 0.16);
+}
+
+.avatar-action-secondary {
+  border: 1rpx solid #47515d;
+  color: #fff;
+  background: #202a33;
+}
+
+.name-card {
+  margin-top: 22rpx;
+  padding: 28rpx;
+  background: rgba(78, 88, 99, 0.76);
+}
+
+.field-label {
+  color: #aab5c3;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.name-input {
+  height: 68rpx;
+  margin-top: 18rpx;
+  border-radius: 6rpx;
+  padding: 0 22rpx;
+  color: #f4f7fb;
+  background: #202a33;
+  font-size: 27rpx;
+  font-weight: 800;
+}
+
+.input-placeholder {
+  color: #66717f;
+}
+
+.field-help {
+  margin-top: 18rpx;
+  color: #8f9aaa;
+  font-size: 22rpx;
+}
+
+.preview-card {
+  min-height: 156rpx;
+  margin-top: 22rpx;
+  padding: 22rpx 24rpx;
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  background: rgba(78, 88, 99, 0.76);
+}
+
+.preview-avatar {
+  width: 92rpx;
+  height: 92rpx;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #ff4655;
+  font-size: 38rpx;
+  font-weight: 900;
+}
+
+.preview-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.preview-name {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.preview-desc {
+  margin-top: 10rpx;
+  color: #aab5c3;
+  font-size: 23rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview-arrow {
+  color: #8f9aaa;
+  font-size: 48rpx;
+}
+
+.save-btn,
+.cancel-btn {
+  height: 78rpx;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.save-btn {
+  margin-top: 76rpx;
+  color: #fff;
+  background: #ff4655;
+}
+
+.cancel-btn {
+  margin-top: 16rpx;
+  color: #aab5c3;
+  background: #202a33;
+}

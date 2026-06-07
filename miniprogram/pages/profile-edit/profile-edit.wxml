@@ -1,0 +1,40 @@
+<view class="page-shell profile-edit-page">
+  <view class="page-title">编辑资料</view>
+  <view class="page-subtitle">修改头像和名称，保存后同步到我的页面</view>
+
+  <view class="section-title first-section">头像</view>
+  <view class="avatar-card card">
+    <view class="avatar-preview">{{avatarText}}</view>
+    <view class="avatar-actions">
+      <view class="avatar-action avatar-action-primary" bindtap="onChooseAvatarTap">从相册选择</view>
+      <view class="avatar-action avatar-action-secondary" bindtap="onUseWechatAvatarTap">使用微信头像</view>
+    </view>
+  </view>
+
+  <view class="section-title section-gap">名称</view>
+  <view class="name-card card">
+    <view class="field-label">显示名称</view>
+    <input
+      class="name-input"
+      value="{{nickname}}"
+      maxlength="12"
+      placeholder="请输入显示名称"
+      placeholder-class="input-placeholder"
+      bindinput="onNicknameInput"
+    />
+    <view class="field-help">2-12 个字符，支持中文、英文和数字</view>
+  </view>
+
+  <view class="section-title section-gap">预览</view>
+  <view class="preview-card card">
+    <view class="preview-avatar">{{avatarText}}</view>
+    <view class="preview-info">
+      <view class="preview-name">{{nickname}}</view>
+      <view class="preview-desc">{{desc}}</view>
+    </view>
+    <view class="preview-arrow">›</view>
+  </view>
+
+  <view class="save-btn" bindtap="onSaveTap">保存修改</view>
+  <view class="cancel-btn" bindtap="onCancelTap">取消</view>
+</view>

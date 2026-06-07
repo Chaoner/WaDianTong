@@ -1,0 +1,78 @@
+<view class="page-shell map-detail-page" wx:if="{{currentMap}}">
+  <view class="page-title">{{currentMap.name}}</view>
+
+  <view class="section-title">整体小地图</view>
+  <view class="tactical-board card">
+    <image class="tactical-map" src="{{currentMap.tacticalMap}}" mode="aspectFit"></image>
+    <view class="map-side-tag map-side-defense">防守方</view>
+    <view class="map-side-tag map-side-attack">进攻方</view>
+  </view>
+
+  <view class="side-switch">
+    <view
+      class="side-button side-defense {{currentSide === 'defense' ? 'side-button-active' : ''}}"
+      data-side="defense"
+      bindtap="onSideTap"
+    >
+      防守方
+    </view>
+    <view
+      class="side-button side-attack {{currentSide === 'attack' ? 'side-button-active' : ''}}"
+      data-side="attack"
+      bindtap="onSideTap"
+    >
+      进攻方
+    </view>
+  </view>
+
+  <view class="current-summary">当前展示：{{currentSideName}} · {{currentRoleName}}</view>
+
+  <view class="section-title role-title">选择角色</view>
+
+  <view class="role-tabs">
+    <view
+      id="role-option-{{item.id}}"
+      class="role-option {{currentRoleId === item.id ? 'role-option-active' : ''}}"
+      wx:for="{{roles}}"
+      wx:key="id"
+    >
+      <view
+        class="role-chip {{currentRoleId === item.id ? 'role-chip-active' : ''}}"
+        data-role-id="{{item.id}}"
+        bindtap="onRoleTap"
+      >
+        <view wx:if="{{item.icon}}" class="role-chip-icon-wrap">
+          <image class="role-chip-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        </view>
+        <view wx:else class="role-all-icon">
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+        </view>
+      </view>
+      <view class="role-name-panel">
+        <text class="role-name-text">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="agent-grid">
+    <view
+      class="agent-card card pressable-card"
+      wx:for="{{visibleAgents}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      hover-class="media-card-pressed"
+      hover-start-time="0"
+      hover-stay-time="90"
+      bindtap="onAgentTap"
+    >
+      <image class="agent-avatar" src="{{item.avatar}}" mode="aspectFit"></image>
+      <view class="agent-name">{{item.name}}</view>
+      <view class="agent-role">{{item.roleName}}</view>
+    </view>
+  </view>
+
+  <view class="section-note">点击角色后进入该地图 + 阵营 + 定位筛选后的点位列表</view>
+</view>

@@ -1,67 +1,53 @@
-.quick-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16rpx;
-  margin-top: 28rpx;
-}
-
-.quick-item {
-  height: 116rpx;
-  border-radius: 12rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12rpx;
-  color: #f3f6f9;
-  background: rgba(255, 255, 255, 0.07);
-  font-size: 24rpx;
-  font-weight: 600;
-}
-
-.quick-mark {
-  width: 40rpx;
-  height: 40rpx;
-  border: 6rpx solid #ff4b48;
-  border-radius: 50%;
-}
-
 .map-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14rpx;
 }
 
+.search-input {
+  flex: 1;
+  height: 100%;
+  color: #eef3f8;
+  font-size: 26rpx;
+}
+
 .map-card {
-  min-height: 220rpx;
-  padding: 12rpx;
+  position: relative;
+  height: 220rpx;
+  padding: 0;
+  overflow: hidden;
+  background: #071018;
 }
 
 .map-thumb {
-  height: 120rpx;
-  border-radius: 6rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.88);
-  background: linear-gradient(135deg, #4a5664, #151d28 62%, #ff4b48);
-  font-size: 44rpx;
-  font-weight: 800;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  display: block;
+  background: #111923;
 }
 
 .map-name,
 .agent-name {
-  margin-top: 14rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 52rpx;
+  margin-top: 0;
+  padding-top: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #f4f7fb;
+  background: linear-gradient(180deg, rgba(6, 11, 17, 0) 0%, rgba(6, 11, 17, 0.82) 34%, rgba(6, 11, 17, 0.96) 100%);
   font-size: 26rpx;
   font-weight: 700;
 }
 
 .map-meta,
 .agent-role {
-  margin-top: 6rpx;
-  color: #8894a3;
-  font-size: 22rpx;
+  display: none;
 }
 
 .agent-grid {
@@ -71,22 +57,129 @@
 }
 
 .agent-card {
-  min-height: 164rpx;
-  padding: 12rpx 10rpx;
+  position: relative;
+  height: 208rpx;
+  padding: 0;
+  overflow: hidden;
   text-align: center;
+  background: linear-gradient(180deg, #2e3a48 0%, #8d2f2b 100%);
 }
 
 .agent-avatar {
-  width: 72rpx;
-  height: 72rpx;
-  border: 2rpx solid rgba(255, 75, 72, 0.72);
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  display: block;
+  transform: translateY(-14rpx);
+  background: transparent;
+}
+
+.official-head {
+  margin-top: 42rpx;
+}
+
+.official-swiper {
+  height: 238rpx;
+  margin-top: 8rpx;
+}
+
+.official-swiper .wx-swiper-dots {
+  bottom: 0 !important;
+}
+
+.official-banner {
+  position: relative;
+  height: 204rpx;
+  margin: 0 2rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.12);
   border-radius: 8rpx;
-  margin: 0 auto;
+  padding: 26rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  box-shadow: 0 18rpx 44rpx rgba(0, 0, 0, 0.24);
+}
+
+.official-banner::before {
+  position: absolute;
+  right: -72rpx;
+  top: -88rpx;
+  width: 250rpx;
+  height: 250rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.11);
+  content: "";
+}
+
+.official-banner::after {
+  position: absolute;
+  right: 44rpx;
+  bottom: 34rpx;
+  width: 128rpx;
+  height: 128rpx;
+  border: 14rpx solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  content: "";
+}
+
+.banner-red {
+  background: linear-gradient(135deg, #3a131b 0%, #ff4655 74%, #111923 100%);
+}
+
+.banner-teal {
+  background: linear-gradient(135deg, #07352e 0%, #12cda0 68%, #111923 100%);
+}
+
+.banner-dark {
+  background: linear-gradient(135deg, #111923 0%, #414b5a 58%, #8d2f2b 100%);
+}
+
+.banner-copy,
+.banner-action {
+  position: relative;
+  z-index: 1;
+}
+
+.banner-tag {
+  min-width: 96rpx;
+  height: 38rpx;
+  border-radius: 6rpx;
+  padding: 0 14rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(5, 10, 15, 0.34);
+  font-size: 21rpx;
+  font-weight: 800;
+}
+
+.banner-title {
+  margin-top: 18rpx;
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.banner-desc {
+  margin-top: 10rpx;
+  max-width: 430rpx;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 23rpx;
+}
+
+.banner-action {
+  min-width: 116rpx;
+  height: 44rpx;
+  border-radius: 6rpx;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  background: linear-gradient(135deg, #a35437, #1b2531);
-  font-size: 30rpx;
+  background: rgba(5, 10, 15, 0.42);
+  font-size: 22rpx;
   font-weight: 800;
 }
